@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wazifa — Scholarship Finder (UX Concept)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="wrap">
+      <h1>Wazifa <span class="pill">Sample data</span></h1>
+      <p>Find scholarships, check your eligibility, and never miss a deadline.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <nav class="tabs" aria-label="Wazifa sections">
+      <button class="tab active" id="tabFinder">Finder</button>
+      <button class="tab" id="tabChecker">Checker</button>
+      <button class="tab" id="tabTracker">Tracker</button>
+      <button class="tab" id="tabScam">Scam Spotter</button>
+    </nav>
+
+    <!-- ============ TAB 1: FINDER ============ -->
+    <section id="panelFinder" aria-label="Scholarship finder">
+      <div class="card">
+        <h2>Find your scholarship <span class="pill">Sample</span></h2>
+        <p class="sub">Search and filter 12 sample scholarships across Pakistan.</p>
+
+        <input type="text" class="search" id="schSearch"
+               placeholder="Search scholarships… (e.g. HEC)" autocomplete="off" />
+
+        <div class="calc-row">
+          <label for="levelFilter">Level:</label>
+          <select id="levelFilter">
+            <option value="">All levels</option>
+            <option value="Undergraduate">Undergraduate</option>
+          </select>
+          <label for="provinceFilter">Province:</label>
+          <select id="provinceFilter">
+            <option value="">All Pakistan</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Sindh">Sindh</option>
+            <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+            <option value="Balochistan">Balochistan</option>
+            <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+            <option value="Azad Jammu & Kashmir">Azad Jammu &amp; Kashmir</option>
+          </select>
+        </div>
+
+        <ul class="sch-list" id="schList"></ul>
+
+        <div id="schDetail"></div>
+      </div>
+    </section>
+
+    <!-- ============ TAB 2: ELIGIBILITY CHECKER ============ -->
+    <section id="panelChecker" aria-label="Eligibility checker" hidden>
+      <div class="card">
+        <h2>Eligibility checker <span class="pill">Sample</span></h2>
+        <p class="sub">Enter your marks, family income and domicile — get a match-% for every scholarship.</p>
+
+        <div class="calc-row">
+          <label for="chkMarks">Marks (%):</label>
+          <input type="number" id="chkMarks" min="0" max="100" value="88" />
+          <label for="chkIncome">Family income / month (Rs):</label>
+          <input type="number" id="chkIncome" min="0" value="45000" />
+        </div>
+        <div class="calc-row">
+          <label for="chkDomicile">Domicile:</label>
+          <select id="chkDomicile">
+            <option value="Punjab">Punjab</option>
+            <option value="Sindh">Sindh</option>
+            <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+            <option value="Balochistan">Balochistan</option>
+            <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+            <option value="Azad Jammu & Kashmir">Azad Jammu &amp; Kashmir</option>
+          </select>
+          <label for="chkLevel">Level:</label>
+          <select id="chkLevel">
+            <option value="Undergraduate">Undergraduate</option>
+          </select>
+          <button class="btn small" id="chkBtn">Check all</button>
+        </div>
+
+        <div id="chkResult"></div>
+      </div>
+    </section>
+
+    <!-- ============ TAB 3: DEADLINE TRACKER + DOCS ============ -->
+    <section id="panelTracker" aria-label="Deadline tracker" hidden>
+      <div class="card">
+        <h2>Deadline tracker <span class="pill">Sample</span></h2>
+        <p class="sub">Closest deadlines first — with a countdown for each award.</p>
+        <div id="trackerList"></div>
+      </div>
+
+      <div class="card">
+        <h2>Document checklist</h2>
+        <p class="sub">Tick off documents as you gather them. Saved on this device.</p>
+        <div class="calc-row">
+          <label for="docScholarship">Scholarship:</label>
+          <select id="docScholarship"></select>
+        </div>
+        <div id="docList"></div>
+        <div id="docProgress" class="calc-result"></div>
+      </div>
+
+      <p class="honesty">Sample data — verify every deadline on the official portal before applying.</p>
+    </section>
+
+    <!-- ============ TAB 4: SCAM SPOTTER ============ -->
+    <section id="panelScam" aria-label="Scam spotter" hidden>
+      <div class="card">
+        <h2>Scam spotter</h2>
+        <p class="sub">Paste an agent's message. Wazifa flags fee demands and fake guarantees.</p>
+        <textarea class="search" id="scamInput" rows="4"
+                  placeholder="Paste the agent's message here…"></textarea>
+        <button class="btn small" id="scamBtn">Check this message</button>
+        <div id="scamResult"></div>
+      </div>
+
+      <div class="alert-card">
+        <strong>Remember:</strong> real scholarships are free to apply.
+        Anyone asking for a "processing fee" or guaranteeing your selection is a red flag.
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Wazifa is a UX concept demo. All scholarships, amounts and deadlines are sample data.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
